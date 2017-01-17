@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>书架</title>
+    <link rel="stylesheet" href="fonts/iconfont.css"/>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="js/loading.js"></script>
+</head>
+<body>
+<header class="header flex flex-vc">
+    <div class="l"><a href="index.html"><i class="icon-zhuye1"></i></a></div>
+    <div class="c box-flex-1 text-center"><h1>哈哈哈中午网</h1></div>
+    <div class="r text-right"><a href="login.html"><i class="icon-zhuye"></i></a></div>
+</header>
+<!--搜索框-->
+<div class="search-box">
+    <div class="search">
+        <form action="#" method="get">
+        <input type="text" class="inp inp-block search-inp" placeholder="请输入关键字">
+        <input type="submit" class="btn search-btn" value="搜索">
+        </form>
+    </div>
+</div>
+<!--我的书架-->
+<div class="bookshelf-box">
+    <h3 class="fz2rem"><i class="icon-yuedu1"></i>我的书架</h3>
+    <div class="bookshelf-title flex flex-vc text-center">
+        <a href="javascript:;" class="box-flex-1 active fz16rem"><i class="icon-yuedu"></i>正在阅读 <span class="bar">2</span></a>
+        <a href="javascript:;" class="box-flex-1 fz16rem"><i class="icon-yuedu"></i>已读完 <span class="bar">0</span></a>
+    </div>
+    <div class="bookshelf-content">
+        <section class="section bookshelf-read bookshelf-reading recharge-col">
+            <ul class="none">
+                <li>
+                    <a href="#" class="pull-right">继续阅读</a>
+                    <h4 class="none">金瓶梅</h4>
+                    <p class="none"><a href="#">上次：武大郎五灰太狼的故事</a></p>
+                    <p class="none"><a href="#">最新：潘金莲与奥特曼180章节</a></p>
+                </li>
+                <li>
+                    <a href="#" class="pull-right">继续阅读</a>
+                    <h4 class="none">金瓶梅</h4>
+                    <p class="none"><a href="#">上次：武大郎五灰太狼的故事</a></p>
+                    <p class="none"><a href="#">最新：潘金莲与奥特曼180章节</a></p>
+                </li>
+                <li>
+                    <a href="#" class="pull-right">继续阅读</a>
+                    <h4 class="none">金瓶梅</h4>
+                    <p class="none"><a href="#">上次：武大郎五灰太狼的故事</a></p>
+                    <p class="none"><a href="#">最新：潘金莲与奥特曼180章节</a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="section bookshelf-read bookshelf-readend recharge-col">
+            <!--如果没有显示这个-->
+            <div class="text-center book-null">
+                <p>
+                    <i class="icon-shape"></i>
+                </p>
+                <p>书架空空的~什么都没有</p>
+            </div>
+        </section>
+    </div>
+</div>
+<!--底部-->
+<footer class="footer">
+    <ul class="none">
+        <li class=""><a href="#">登录</a></li>
+        <span class="fg">|</span>
+        <li class=""><a href="#">首页</a></li>
+        <span class="fg">|</span>
+        <li class=""><a href="#">充值</a></li>
+    </ul>
+    <p class="none">客服QQ：123435666</p>
+</footer>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    $(function(){
+        //选项卡切换
+        var $bookshelf_title = $(".bookshelf-title>a");
+        $bookshelf_title.on('click',function(){
+            var $this = $(this),
+                $content = $(".bookshelf-content").find(".bookshelf-read"),
+                $index= $bookshelf_title.index(this);
+            $this.addClass('active').siblings().removeClass('active');
+            $content.eq($index).show().siblings().hide();
+        })
+    })
+</script>
+</html>

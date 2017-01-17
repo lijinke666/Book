@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>充值</title>
+    <link rel="stylesheet" href="fonts/iconfont.css"/>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="js/loading.js"></script>
+</head>
+<body>
+<header class="header flex flex-vc">
+    <div class="l"><a href="index.html"><i class="icon-zhuye1"></i></a></div>
+    <div class="c box-flex-1 text-center"><h1>哈哈哈中午网</h1></div>
+    <div class="r text-right"><a href="login.html"><i class="icon-zhuye"></i></a></div>
+</header>
+<!--充值-->
+<div class="recharge-box">
+    <div class="section mt1rem recharge-col">
+        <ul class="none">
+            <li class="flex">
+                <span>充值用户：</span>
+                <span class="box-flex-1 text-right">赵日天</span>
+            </li>
+            <li class="flex">    
+                <span>剩余读书币:</span>
+                <span class="box-flex-1 text-right color-red">0</span>
+            </li>
+        </ul>
+    </div>
+    <h3 class="recharge-title"><i class="icon-qianbao1"></i>  请选择充值金额</h3>
+    <!--充值选择第三方-->
+    <div class="mt1rem recharge-select">
+        <ul class="none flex flex-hw">
+            <li class="">
+                <input type="radio" name="select-server" id="weixin" class="hidden" data-server="wx" checked>
+                <label class="flex" for="weixin">
+                    <div class="pay-img weixin">
+                        <!--<img src="images/weixin.png" alt="weixin">-->
+                        <i class="icon-weixinzhifu"></i>
+                    </div>
+                    <div class="pay-info box-flex-1">
+                        <h4 class="none name">微信支付</h4>
+                        <p class="none bili">1元=100读书币</p>
+                    </div>
+                </label>
+            </li>
+            <li class="">
+                <input type="radio" name="select-server" id="zfb" class="hidden" data-server="zfb" >
+                <label class="flex" for="zfb">
+                    <div class="pay-img zhifubao">
+                        <i class="icon-zhifubaozhifu"></i>
+                    </div>
+                    <div class="pay-info box-flex-1">
+                        <h4 class="none name">支付宝钱包</h4>
+                        <p class="none bili">1元=100读书币</p>
+                    </div>
+                </label>
+            </li>
+            <li class="">
+                <input type="radio" name="select-server" id="bdqb" class="hidden" data-server="bdqb" >
+                <label class="flex" for="bdqb">
+                    <div class="pay-img baidu">
+                        <i class="icon-baiduqianbao"></i>
+                    </div>
+                    <div class="pay-info box-flex-1">
+                        <h4 class="none name">百度钱包</h4>
+                        <p class="none bili">1元=100读书币</p>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <!--充值金额-->
+    <div class="mt1rem recharge-col recharge-price">
+        <ul class="none flex flex-hw text-center">
+            <li>
+                <input type="radio" name="select-price" id="price30" class="select-price hidden" data-price='30' checked>
+                <label for="price30" class=" flex">30元</label>
+            </li>
+            <li>
+                <input type="radio" name="select-price" id="price50" class="select-price hidden" data-price='50'>
+                <label for="price50" class=" flex">50元</label>
+            </li>
+            <li>
+                <input type="radio" name="select-price" id="price100" class="select-price hidden" data-price='100'>
+                <label for="price100" class="flex">100元</label>
+            </li>
+            <li>
+                <input type="radio" name="select-price" id="price200" class="select-price hidden" data-price='200'>
+                <label for="price200" class="flex">200元</label>
+            </li>
+            <li>
+                <input type="radio" name="select-price" id="price500" class="select-price hidden" data-price='500'>
+                <label for="price500" class="flex">500元</label>
+            </li>
+            <li>
+                <input type="radio" name="select-price" id="price1000" class="select-price hidden" data-price='1000'>
+                <label for="price1000" class="flex">1000元</label>
+            </li>
+        </ul>
+    </div>
+    <!--充值总金额-->
+    <div class="mt1rem recharge-col recharge-all-price-box">
+        <i class="icon-qianbao1"></i>
+        <span>充值金额<b class="recharge-all-price fz2rem">30</b>元</span>
+        <span><b class="read-gold">3000</b>读书币</span>
+    </div>
+    <div class="recharge-col">
+        <a href="javascript:;" class="btn btn-primary btn-block go-to-recharge">确认充值</a>
+    </div>
+    <p class="text-center select-recharge-info">
+         <a href="pay-history.html">查看我的充值记录</a>
+    </p>
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    $(function(){
+    recharge();
+    })
+
+//充值
+function recharge(){
+    var $recharge_price = $('.recharge-price').find("input[name='select-price']");  //价格选择框
+    $recharge_price.on('change',function(){
+        var $all_price = $('.recharge-all-price'),
+            $this = $(this),
+            $read_gold = $('.read-gold');
+        var $price = $this.data('price');    //当前选择充值金额
+            $all_price.text($price);
+            $read_gold.text($price*100);
+    });
+    //充值
+    function go_to_recharge(){
+        $('.go-to-recharge').on('click',function(){
+                $server = $('.recharge-select').find('input[name="select-server"]:checked').data('server');   //充值方式
+                $price = $recharge_price.filter(':checked').data('price');  //充值金额
+
+                if($server && $price){
+                    $.ajax({
+                        url:"",
+                        type:"post",
+                        data:{
+                            server:$server,
+                            price:$price
+                        },
+                        dataType:"json",
+                        cache:false,
+                        success:function(){
+
+                        },
+                        error:function(){
+                            
+                        }
+                    })
+                }
+        })
+    }
+    go_to_recharge();
+}
+</script>
+</html>

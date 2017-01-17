@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>书库</title>
+    <link rel="stylesheet" href="fonts/iconfont.css"/>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="js/loading.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="flex flex-vc color-white book-detail-title">
+        <div class="left" onclick="back()"><i class="icon-zuoleft157"></i></div>
+        <div class="box-flex-1 title"><h4 class="fz14rem">籍名字施法似的士大夫</h4></div>
+        <div class="right"><a href="#"><i class="icon-yuedu"></i></a><span class="fg"></span><a href="index.html"><i class="icon-zhuye1"></i></a></div>
+    </div>
+</header>
+<!--书籍详情-->
+<div class="section recharge-col book-detail-box flex">
+    <div class="book-detail-img">
+        <img src="images/132.jpg" alt="loading.." class="img-bespread">
+    </div>
+    <div class="box-flex-1 book-detail-info">
+        <h4 class="none color-blue title">喜羊羊与灰太狼的故事</h4>
+        <span class="state ing"><i class="icon-yuedu"></i>连载中</span>
+        <!--<span class="state end">已完结</span>-->
+        <div class="fz12rem mt1rem">
+            <p class="none ">作者：杨永信</p>
+            <p class="none ">分类：古典文学</p>
+            <p class="none ">字数：999999</p>
+        </div>
+    </div>
+</div>
+<div class="section flex recharge-col book-operation">
+    <a href="bookshelf.html" class="btn btn-primary box-flex-1"><i class="icon-kongxin"></i>加入书架</a>
+    <span class="fg"></span>
+    <a href="book-read.html" class="btn btn-success box-flex-1"><i class="icon-chakan"></i>开始阅读</a>
+</div>
+<!--书籍简介-->
+<div class="section recharge-col book-intro">
+    <h3 class="fz2rem book-detail-titles"><i class="icon-yuedu1"></i>书籍简介</h3>
+    <article class="fz14rem book-intro-article">
+        <p>我要了！”惨遭男朋友卖掉的慕薇薇，摇身一变成为了叶少辰的妻子。休息室内，他的阴狠
+            “这个女人，我要了！”惨遭男朋友卖掉的慕薇薇，摇身一变成为了叶少辰的妻子。休息室内，他的阴狠，让她崩溃，“你娶我的目的</p>
+    </article>
+    <div class="text-center book-intro-unfold">展开更多介绍 <i class="icon-xia"></i></div>
+</div>
+<!--书籍目录-->
+<div class="section recharge-col mt1rem book-mulu">
+    <h3 class="fz2rem book-detail-titles"><i class="icon-mulu"></i>书籍目录</h3>
+    <div class="book-all-mulu color-blue"><i class="icon-xia pull-right"></i>全部章节</div>
+    <ul class="none book-mulu-items fz16rem">
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
+        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
+    </ul>
+</div>
+<!--搜索框-->
+<div class="search-box">
+    <div class="search">
+        <form action="#" method="get">
+        <input type="text" class="inp inp-block search-inp" placeholder="请输入关键字">
+        <input type="submit" class="btn search-btn" value="搜索">
+        </form>
+    </div>
+</div>
+<!--底部-->
+<footer class="footer">
+    <ul class="none">
+        <li class=""><a href="#">登录</a></li>
+        <span class="fg">|</span>
+        <li class=""><a href="#">首页</a></li>
+        <span class="fg">|</span>
+        <li class=""><a href="#">充值</a></li>
+    </ul>
+    <p class="none">客服QQ：123435666</p>
+</footer>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    $(function(){
+        var article = $(".book-intro-article>p"),
+            text = article.text();          //保存当前所有文字
+        toggle_mulu();
+        init_subStr(article,text,50);
+        toggle_intro(article,text,50);
+    })
+    //展开更多介绍
+    function toggle_intro(ele, alltext,len ){
+        len = len ? len : 50;
+       $(".book-intro-unfold").on('click',function(){
+           var $this = $(this);
+           if( alltext.length < len ){
+               return;
+           }
+
+        if( $this.hasClass('isAll') ){
+            $this.addClass('rotate').removeClass('isAll')
+            ele.html(alltext);
+        }else{
+            $this.addClass('isAll').removeClass('rotate');
+            ele.html(sub_str(alltext,len));
+        }
+          
+       }) 
+    }
+    //截取字符
+    function sub_str( ele,length ){
+        return ele.replace(/\s/g,"").substr(0,length)+"。。。";
+    }
+    //初始化截取50个字
+    function init_subStr(ele,alltext,len){
+        len = len ? len : 50;
+        if( alltext.length < len ){
+            return;
+            $(".book-intro-unfold").addClass('rotate')
+        }
+        $(".book-intro-unfold").addClass('isAll')
+        ele.html(sub_str(alltext,len));
+    }
+    //展开目录
+    function toggle_mulu( ){
+        var $book = $('.book-all-mulu');
+        $book.on('click',function(){
+            var $this = $(this);
+            $this.toggleClass('toggle rotate');
+        });
+    }
+</script>
+</html>

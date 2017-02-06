@@ -1,4 +1,11 @@
 {
+  "scripts": {
+    "start":"npm run dev",
+    "gulp":"gulp watchLess",
+    "cssMin":"gulp cssMin",
+    "jsMin":"gulp jsMin",
+    "dev":"browser-sync start --server --files './src/css/*.css ./src/*.html ./src/js/*.js'"
+  },  
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
